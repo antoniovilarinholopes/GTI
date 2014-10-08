@@ -1,0 +1,16 @@
+declare namespace p = "http://www.parlamento.pt";
+declare variable $document := doc("D:\Francisco\IST\Mestrado\1Ano-1Semestre\Gestao e Tratamento de Informação\Projecto\Parlamento.xml");
+
+3.1 count($document//p:session[contains(@date,'2014-03')]/p:speech[not(./@politician = following-sibling::p:speech/@politician)])
+
+3.2 $document//p:politician[@code= //p:speech[contains(text(),'educação') or contains(text(), 'ensino superior')]/@politician]/text()
+
+3.3 $document//p:politician[@code=//p:speech[@politician=//p:politician[text()='José Seguro']/@code]/following-sibling::p:speech[1]/@politician]/text()
+
+3.4 avg($document//p:politician[@code=//p:session[@date='2014-03-01']/p:speech[@politician=//p:politician[@party='PSD']/@code]/following-sibling::p:speech/@politician]/@age)
+
+
+Notas:
+É melhor mostrar como funciona o 3.4 para confirmar a correcção
+Obviamente é preciso mudar o caminho do documento mas de resto é só pôr as duas primeiras linhas no qizx e fazer uma das queries.
+O documento que eu usei nao foi o completo, usei o que é dado no enunciado.

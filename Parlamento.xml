@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<parliament xmlns="http://www.parlamento.pt">
+	<parliament-interventions>
+		<session date="2014-03-01">
+			<speech order="1" politician="1">Text from the speech of a given politician.</speech>
+			<speech order="2" politician="2">Reply to the 1st speech from another politician.</speech>
+			<speech order="3" politician="1">Reply to the previous reply.</speech>
+			<speech order="4" politician="3">Another intervention from a politician.</speech>
+			<speech order="5" politician="2">Reply from a given politician.</speech>
+			<speech order="6" politician="1">Reply to the previous reply.</speech>
+		</session>
+			<session date="2014-03-02">
+			<speech order="1" politician="1">Intervention from a politician.</speech>
+			<speech order="2" politician="2">Speech about "ensino superior" and about "educação".</speech>
+			<speech order="3" politician="1">The reply from a second politician.</speech>
+		</session>
+		<session date="2014-04-02">
+			<speech order="1" politician="3">A speech given by a particular politician.</speech>
+		</session>
+		<!-- list of remaining parliament sessions/speeches -->
+	</parliament-interventions>
+	<politicians>
+		<politician code="1" party="PSD" age="50">Pedro Passos Coelho</politician>
+		<politician code="2" party="PS" age="52">José Seguro</politician>
+		<politician code="3" party="PS" age="65">João Soares</politician>
+		<!-- list of remaining politicians -->
+	</politicians>
+</parliament>
