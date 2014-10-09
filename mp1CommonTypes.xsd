@@ -1,0 +1,27 @@
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="mp1CommonTypes">
+    
+	  <xsd:simpleType name="PoliticiansName">
+	    <xsd:restriction base="xsd:string">
+	      <xsd:pattern value="[A-Z][a-z]+ ([A-Z][a-z]+)+" />
+	    </xsd:restriction>
+	  </xsd:simpleType>
+	  
+	  <xs:complexType name="Politician">
+	    <xsd:simpleContent>
+	      <xsd:extension base="PoliticiansName">
+	       <xsd:attribute name="age" type="xsd:nonNegativeInteger" />
+	       <xsd:attribute name="code" type="xsd:integer" use="required" />
+	       <xsd:attribute name="party" type="xsd:string" />
+	      </xsd:extension>
+	    </xsd:simpleContent>
+	  </xs:complexType>
+	  
+	  <xs:complexType name="Session">
+	    <xsd:attribute name="date" type="xs:date" />
+	  </xs:complexType>
+	  
+	  <xs:complexType name="Speech">
+	    <xsd:attribute name="order" type="xsd:nonNegativeInteger" />
+	    <xsd:attribute name="politician" type="xsd:nonNegativeInteger" minOccurs="0" />
+	  </xs:complexType>
+  </xs:schema>

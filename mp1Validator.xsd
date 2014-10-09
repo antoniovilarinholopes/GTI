@@ -1,0 +1,33 @@
+
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema mp1CommonTypes.xsd">
+    <xs:element name="parliament">
+      <xs:complexType>
+	<xs:all>
+	  <xs:element name="politicians">
+	    <xs:element name="politician" type="Politician" targetNamespace="" minOccurs="0" maxOccurs="unbounded">
+	      <!-- chaves -->
+	    </xs:element>
+	  </xs:element> 
+	  <xs:element name="parliament-interventions">
+	    <xs:element name="session" type="Session" targetNamespace="" minOccurs="0" maxOccurs="unbounded">
+	      <xs:element name="speech" type="Speech" targetNamespace="" minOccurs="0" maxOccurs="unbounded">
+	      <!-- chaves -->
+	      </xs:element>
+	    </xs:element>
+
+	  </xs:element>
+	</xs:all>
+       </xs:complexType>
+       <!--
+       <xs:key name="PoliticianCode">
+	 <xs:selector xpath=".//politician"/>
+	 <xs:field xpath="@code"/>
+       </xs:key>
+       
+	<xs:keyref name="PoliticianCodeRef" refer="PoliticianCode">
+	  <xs:selector xpath=".//speech" />
+	  <xs:field xpath="politician" />
+	</xs:keyref> 
+	-->
+    </xs:element>
+   </xs:schema>
