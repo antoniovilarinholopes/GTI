@@ -19,17 +19,22 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:p="http://www.parlamento.
           <th>Age</th>
           <th>Code</th>
           <th>Party</th>
+          <th>N.º of Interventions</th>
+          <th>N.º of Sessions</th>
         </tr> 
          <xsl:apply-templates /> 
         </table> 
 </xsl:template>
 
 <xsl:template match="p:politicians/p:politician">
+		<xsl:param name="code" select="@code"/>
         <tr>
 		<td> <xsl:value-of select="." /> </td> 
 		<td> <xsl:value-of select="@age" /> </td>
-		<td> <xsl:value-of select="@code" /> </td>
-		<td> <xsl:value-of select="@party" /> </td> 
+		<td> <xsl:value-of select="$code" /> </td>
+		<td> <xsl:value-of select="@party" /> </td>
+		<td> <xsl:value-of select="count(//p:speech[@politician=$code])" /></td>
+		<td> <xsl:value-of select="count(//p:session[p:speech/@politician=$code])" /></td>
 	</tr>
 </xsl:template>
 
