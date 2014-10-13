@@ -66,7 +66,7 @@
       
       </xs:all>
     </xs:complexType>
-    <!--
+    
     <xs:key name="PoliticianCode">
     <xs:selector xpath=".//politician"/>
     <xs:field xpath="@code"/>
@@ -74,8 +74,8 @@
 
   <xs:keyref name="PoliticianCodeRef" refer="PoliticianCode">
   <xs:selector xpath=".//speech" />
-  <xs:field xpath="politician" />
+  <xs:field xpath="@politician" />
 </xs:keyref>
--->
+
  </xs:element>
 </xs:schema>
