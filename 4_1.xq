@@ -5,11 +5,9 @@ return
 	let $s := //ns:session/ns:speech[@politician=$pcode]/following-sibling::*[1]
 	return
 		for $speech in $s
-		let $order := $speech/@order
-		group by $order
+		let $politician := $speech/@politician
+		group by $politician
 		where count($speech) >= 2
 		return
-			let $p := //ns:politician[@code=$order]
+			let $p := //ns:politician[@code=$politician]
 			return concat("name: ", $p/text(), " party: ", $p/@party)
-		
-		
