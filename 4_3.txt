@@ -1,0 +1,20 @@
+4.3.a) Este funciona porque fiz import do ficheiro XML para o qizx. Nao muda o ficheiro que esta no disco
+declare default element namespace "http://www.parlamento.pt";
+
+
+for $politician in //politician
+let $num-interventions:=count(//speech[@politician=$politician/@code])
+return
+	insert node (attribute num-interventions {$num-interventions})
+	into //politician[@code=$politician/@code]
+	
+Este seria se mudasse:
+
+declare default element namespace "http://www.parlamento.pt";
+declare variable $document := doc("D:\Francisco\IST\Mestrado\1Ano-1Semestre\Gestao e Tratamento de Informação\Projecto\Parlamento.xml");
+
+for $politician in $document//politician
+let $num-interventions:=count($document//speech[@politician=$politician/@code])
+return
+	insert node (attribute num-interventions {$num-interventions})
+	into $document//politician[@code=$politician/@code]
