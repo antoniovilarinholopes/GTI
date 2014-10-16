@@ -1,20 +1,36 @@
-4.3.a) Este funciona porque fiz import do ficheiro XML para o qizx. Nao muda o ficheiro que esta no disco
+﻿4.3.a)
 declare default element namespace "http://www.parlamento.pt";
 
-
 for $politician in //politician
-let $num-interventions:=count(//speech[@politician=$politician/@code])
+let $num-interventions:=count(for $speech in //speech
+			where $speech[@politician = $politician/@code]
+			return $speech)
 return
 	insert node (attribute num-interventions {$num-interventions})
 	into //politician[@code=$politician/@code]
-	
-Este seria se mudasse:
 
-declare default element namespace "http://www.parlamento.pt";
-declare variable $document := doc("D:\Francisco\IST\Mestrado\1Ano-1Semestre\Gestao e Tratamento de Informação\Projecto\Parlamento.xml");
+b) E melhor rever com mais exemplos mais tarde
 
-for $politician in $document//politician
-let $num-interventions:=count($document//speech[@politician=$politician/@code])
+for $politician in //politician
+let $num-sessions := count(for $session in //session
+		where $session[speech/@politician=$politician/@code]
+		return $session)
 return
-	insert node (attribute num-interventions {$num-interventions})
-	into $document//politician[@code=$politician/@code]
+	insert node (attribute num-sessions {$num-sessions})
+	into $politician
+
+c) Posso usar o distinct-values?
+
+for $session in //session
+let $party-frequency := (
+		for $party in distinct-values(//politician/@party)
+		let $frequency := count(
+			for $speech in $session/speech
+			where $speech[@politician=//politician[@party=$party]/@code]
+			return $speech
+			)
+		order by $frequency descending
+		return (<party-interventions name="{$party}" session="{$session/@date}">{$frequency}</party-interventions>))
+return 
+	insert node (attribute most-frequent {$party-frequency[1]/@name})
+	into $session
