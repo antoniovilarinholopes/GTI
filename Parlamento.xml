@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<parliament xmlns="http://www.parlamento.pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.parlamento.pt /home/antonio/GTI/GTI/mp1Validator.xsd">
+<parliament xmlns="http://www.parlamento.pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.parlamento.pt /home/antonio/GTI/mp1Validator.xsd">
 	<parliament-interventions>
 		<session date="2014-03-01">
 			<speech order="1" politician="1">Text from the speech of a given politician.</speech>
