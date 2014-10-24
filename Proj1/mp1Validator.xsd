@@ -8,7 +8,7 @@
 	  
 	  <xs:simpleType name="PoliticianName">
 	    <xs:restriction base="xs:string">
-	      <xs:pattern value="([A-Z]\w*)([ ]\w+)+"/>
+	      <xs:pattern value="(([A-Z]|[ÁÀÉÈÍÌÓÒÚÙÂÊÎÔÛ])\w*)([ ]+\w(\w|'|-)*)+"/>
  	    </xs:restriction> 
 	  </xs:simpleType>
 	  
