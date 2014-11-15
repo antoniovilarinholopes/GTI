@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
+	<channel>
+		<title>Diário de Notícias - Últimas</title>
+		<link>http://www.dn.pt</link>
+		<description>A Grande Referência Diária</description>
+		<language>pt-pt</language>
+		<lastBuildDate>Sat, 15 Nov 2014 13:14:43 GMT</lastBuildDate>
+		<category>Notícias</category>
+		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.dn.pt/DN-Ultimas"/>
+		<feedburner:info uri="dn-ultimas"/>
+		<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/"/>
+		<geo:lat>38.724523</geo:lat>
+		<geo:long>-9.148841</geo:long>
+		<image>
+			<link>http://www.dn.pt</link>
+			<url>http://www.dn.pt/favicon.ico</url>
+			<title>Diário de Notícias</title>
+		</image>
+		<item>
+			<title>
+				<![CDATA[
+				PSD protege Macedo e empurra Portas para a linha da frente. CDS incomodado
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/OJ6e3qJXxd4/interior.aspx
+			</link>
+			<description>
+				Vice-primeiro-ministro vai dar a cara na Assembleia da República sobre o processo dos vistos gold. Ministro da Administração Interna resguarda-se, depois de ter garantido ao primeiro-ministro que nada...<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/OJ6e3qJXxd4" height="1" width="1"/>
+			</description>
+			<category>Política</category>
+			<pubDate>Sat, 15 Nov 2014 13:08:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/politica/interior.aspx?content_id=4242059
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				PS rasga acordo com maioria e recusa baixar IRC em 2015
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/VNl_iAiit3Q/interior.aspx
+			</link>
+			<description>
+				Socialistas demarcam-se da reforma assinada durante a era Seguro e acusam a maioria de não ter cumprido as suas promessas<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/VNl_iAiit3Q" height="1" width="1"/>
+			</description>
+			<category>Política</category>
+			<pubDate>Sat, 15 Nov 2014 12:32:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/politica/interior.aspx?content_id=4242026
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[ Morreu José Casanova ]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/jUDPu7tie6c/interior.aspx
+			</link>
+			<description>
+				Membro do Comité Central do PCP e escritor tinha 75 anos<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/jUDPu7tie6c" height="1" width="1"/>
+			</description>
+			<category>Política</category>
+			<pubDate>Sat, 15 Nov 2014 12:14:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/politica/interior.aspx?content_id=4242008
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Descoberto templo romano ao Sol, à Lua e ao Oceano, que estava perdido
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/XWUTB_hRihs/interior.aspx
+			</link>
+			<description>
+				Chegou-se a pensar que era lenda. Não era. Reunidas todas as pistas e feitas algumas prospeções que não deram fruto, o arqueólogo Cardim Ribeiro acabou por encontrar o que há muito procurava. E com o...<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/XWUTB_hRihs" height="1" width="1"/>
+			</description>
+			<category>Ciência</category>
+			<pubDate>Sat, 15 Nov 2014 07:30:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/ciencia/interior.aspx?content_id=4241547
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Portugal e o resto do mundo de D. Luís à aventura na UE
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/pcpjXmFMUNY/interior.aspx
+			</link>
+			<description>
+				Hoje não perca a primeira de cinco revistas numa coleção histórica para celebrar os 150 anos do DN, nas bancas todos os sábados.<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/pcpjXmFMUNY" height="1" width="1"/>
+			</description>
+			<category>TV e Media</category>
+			<pubDate>Sat, 15 Nov 2014 01:04:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/tv/interior.aspx?content_id=4232977&amp;page=-1
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Vistos gold: Judiciária tem imagens de pagamentos de casas em dinheiro
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/ql-mmMyZRPI/interior.aspx
+			</link>
+			<description>
+				Valores transacionados sem qualquer controlo terão atingido milhões de euros<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/ql-mmMyZRPI" height="1" width="1"/>
+			</description>
+			<category>Política</category>
+			<pubDate>Sat, 15 Nov 2014 00:29:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/politica/interior.aspx?content_id=4241720
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Sporting recupera jogadores do Fundo por 12,6 milhões
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/8rYW28qDUug/interior.aspx
+			</link>
+			<description>
+				Os leões informam a CMVM que exercem o direito de opção de compra da percentagem dos passes de 17 atletas, entre os quais William Carvalho e João Mário.<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/8rYW28qDUug" height="1" width="1"/>
+			</description>
+			<category>Sporting</category>
+			<pubDate>Sat, 15 Nov 2014 00:29:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/desporto/sporting/interior.aspx?content_id=4241724
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				"Há uma ligação a estabelecer com os depósitos de um milhão nas contas do CDS"
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/DdOKoVj64CA/interior.aspx
+			</link>
+			<description>
+				A eurodeputada socialista Ana Gomes alvitra a hipótese de um milhão de euros do negócio dos submarinos ter sido depositado em contas do CDS.<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/DdOKoVj64CA" height="1" width="1"/>
+			</description>
+			<category>Política</category>
+			<pubDate>Sat, 15 Nov 2014 00:24:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/politica/interior.aspx?content_id=4241630
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Adolfo: um "grande ativo" que o CDS tem para Lisboa. E não só
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/Uw_Gvp6Oli8/interior.aspx
+			</link>
+			<description>
+				Dirigentes centristas reconhecem ao secretário de Estado do Turismo competências para liderar uma autarquia como Lisboa, mas lembram que faltam três anos. É difícil repetir Abecassis<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/Uw_Gvp6Oli8" height="1" width="1"/>
+			</description>
+			<category>Política</category>
+			<pubDate>Sat, 15 Nov 2014 00:23:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/politica/interior.aspx?content_id=4241425
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[ Marion Cottilard de carne e osso. Sem truques ]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/6mCI8Z4rb6w/interior.aspx
+			</link>
+			<description>
+				Na quinta-feira chega aos cinemas Dois Dias, Uma Noite, o novo filme dos irmãos Dardenne. Marion Cotillard vai à luta e é a heroína triste. Em Cannes, recebeu o DN de alma aberta<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/6mCI8Z4rb6w" height="1" width="1"/>
+			</description>
+			<category>Artes</category>
+			<pubDate>Sat, 15 Nov 2014 00:21:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/artes/interior.aspx?content_id=4241436
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[ Para Arto Lindsay o Spotify "não é legal" ]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/KoVn0btF9GM/interior.aspx
+			</link>
+			<description>
+				Depois de há um ano ter sido jurado no Lisbon &amp; Estoril Film Festival, amanhã o norte-americano encerra o certame com um concerto no Grande Auditório do Centro Cultural de Belém.<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/KoVn0btF9GM" height="1" width="1"/>
+			</description>
+			<category>Artes</category>
+			<pubDate>Sat, 15 Nov 2014 00:20:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/artes/interior.aspx?content_id=4240932
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				"Contra o rodriguinho e o francisquinho na literatura"
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/7ZgwXS5C5Qk/interior.aspx
+			</link>
+			<description>
+				O escritor Mário de Carvalho lançou um guia prático de escrita de ficção. Uma pausa nos romances com uma reflexão sobre o ato de escrever que é também uma viagem por outros autores, com exemplos salpicados...<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/7ZgwXS5C5Qk" height="1" width="1"/>
+			</description>
+			<category>Artes</category>
+			<pubDate>Sat, 15 Nov 2014 00:20:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/artes/interior.aspx?content_id=4241345
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Monago explica viagens e promete limpar Espanha da corrupção
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/L6hu5YZmusw/interior.aspx
+			</link>
+			<description>
+				Governante do PP garante que pagou do seu bolso voos feitos a título privado e anunciou a sua candidatura à reeleição<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/L6hu5YZmusw" height="1" width="1"/>
+			</description>
+			<category>Globo</category>
+			<pubDate>Sat, 15 Nov 2014 00:16:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/globo/interior.aspx?content_id=4241340
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Um enorme paraíso fiscal sob forma de um pequeno grão-ducado
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/FywGiLyizK0/interior.aspx
+			</link>
+			<description>
+				Antigo primeiro-ministro do Luxemburgo, Jean-Claude Juncker admite "responsabilidade política", mas diz que atuação é "corrente" noutros Estados<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/FywGiLyizK0" height="1" width="1"/>
+			</description>
+			<category>Globo</category>
+			<pubDate>Sat, 15 Nov 2014 00:16:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/globo/interior.aspx?content_id=4241386
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Sabe porque é que as quintas-feiras são tão importantes para Troia?
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/7maCNS3gYjs/interior.aspx
+			</link>
+			<description>
+				É quando os comerciantes do resort alentejano recebem as previsões meteorológicas. Sol significa possibilidades de negócio. "A partir de novembro, Troia é uma aldeia deserta"<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/7maCNS3gYjs" height="1" width="1"/>
+			</description>
+			<category>Portugal</category>
+			<pubDate>Sat, 15 Nov 2014 00:14:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/portugal/interior.aspx?content_id=4241418
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Legionela: Autoridades já estão a fazer inspeções e recolha de amostras em mais empresas
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/hBGQ7kfyFVs/interior.aspx
+			</link>
+			<description>
+				As autoridades de saúde iniciaram ontem novas inspeções extraordinárias e recolha de amostras em mais empresas da região de Vila Franca de Xira, na sequência do surto de legionela que já afetou 316...<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/hBGQ7kfyFVs" height="1" width="1"/>
+			</description>
+			<category>Portugal</category>
+			<pubDate>Sat, 15 Nov 2014 00:13:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/portugal/interior.aspx?content_id=4241568
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				Bar Snob: Há 50 anos que se conspira na Rua do Século
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/YJk532upnl8/interior.aspx
+			</link>
+			<description>
+				No seu género, este é o mais antigo bar-restaurante da capital. Poiso de jornalistas e políticos, celebra amanhã 50 anos de vida. Muito pouco mudou desde então<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/YJk532upnl8" height="1" width="1"/>
+			</description>
+			<category>Portugal</category>
+			<pubDate>Sat, 15 Nov 2014 00:07:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/portugal/interior.aspx?content_id=4241589
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[
+				"A maior parte das pessoas identifica-se com o que eu digo"
+				]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/ddAQYAkSoQo/interior.aspx
+			</link>
+			<description>
+				Já tínhamos comido meia tábua de queijos com um pedaço ótimo de Serra e alguns enchidos, eu tinha comido. Já tínhamos jantado polvo com batata-doce, eu tinha jantado. Já tínhamos bebido dois copos de vinho... <img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/ddAQYAkSoQo" height="1" width="1"/>
+			</description>
+			<category>Portugal</category>
+			<pubDate>Sat, 15 Nov 2014 00:07:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/portugal/interior.aspx?content_id=4241653
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[ Líder do SIS envolvido no caso ]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/Vji_Wf12Cuk/interior.aspx
+			</link>
+			<description>
+				Judiciária tem indícios que apontam para o envolvimento do líder do SIS no caso dos vistos gold. PJ apanhou líder o SIS a ajudar suspeitos dos vistos gold. Interrogatórios aos detidos ainda não terminaram.<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/Vji_Wf12Cuk" height="1" width="1"/>
+			</description>
+			<category>Política</category>
+			<pubDate>Fri, 14 Nov 2014 23:48:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/politica/interior.aspx?content_id=4241658
+			</feedburner:origLink>
+		</item>
+		<item>
+			<title>
+				<![CDATA[ Idosa acorda após passar 11 horas na morgue ]]>
+			</title>
+			<link>
+				http://feeds.dn.pt/~r/DN-Ultimas/~3/ShkRvyC0KQk/interior.aspx
+			</link>
+			<description>
+				Uma polaca de 91 anos foi declarada morta pelos médicos e esteve 11 horas na morgue, até que acordou. Voltou para a família a queixar-se do frio.<img src="http://feeds.feedburner.com/~r/DN-Ultimas/~4/ShkRvyC0KQk" height="1" width="1"/>
+			</description>
+			<category>Globo</category>
+			<pubDate>Fri, 14 Nov 2014 23:27:00 GMT</pubDate>
+			<feedburner:origLink>
+				http://www.dn.pt/inicio/globo/interior.aspx?content_id=4241613
+			</feedburner:origLink>
+		</item>
+	</channel>
+</rss>

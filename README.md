@@ -7,4 +7,8 @@ Group Elements:
 	António Lopes
 	Frederico Sabino
 
-[Relatório (Dropbox)](https://www.dropbox.com/sh/u5hjk3q5egkmcm5/AAD-nH80ewOXr15TcW8LfIlFa?dl=0)
+[Relatório MP1 (Dropbox)](https://www.dropbox.com/sh/u5hjk3q5egkmcm5/AAD-nH80ewOXr15TcW8LfIlFa?dl=0)
+
+Miniproject 2:
+
+[DN Feed](http://feeds.dn.pt/DN-Ultimas)
