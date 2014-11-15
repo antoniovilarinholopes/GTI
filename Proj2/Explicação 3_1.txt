@@ -1,0 +1,4 @@
+Há 5 estados no modelo HMM criado. Date, que corresponde aos simbolos com datas (22-10-2014), o Time que corresponde a simbolos que tenham horas (15:30),
+title que corresponde aos simbolos que façam parte do titulo na amostra da figura 5. Name é o estado dos simbolos que fazem parte de nomes de jornais na amostra.
+Section são os simbolos encontrados na amostra que representavam secções do jornal.
+As probabilidades das transições entre estados e de encontrar o simbolo no estado ainda não estão representados
