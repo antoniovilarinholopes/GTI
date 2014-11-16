@@ -26,9 +26,33 @@ declare function ns:word-count
                  return $words)
    
      
-    let $words_normalized := fn:lowercase(fn:distinct-values($words));
+    let $words_normalized := fn:distinct-values(fn_lowercase($words));
     (:party with words:)
+    let $word_tokens := (for $word in $words_normalized
+                        let $party_word_count := (for $party in $partys
+                                                  return <party
+				                name="{$party}">
+					      {count(for $speech, $politician in $speeches, $politicians
+							     where $speech[@politican = $politician/@code] 
+								and $politican[@party = $party] 
+								and contains($speech, $word)
+							     return $speech 
+							)}
+					     </party>
+					 )
+		  return <word
+			token="{$word}"
+			>
+			{for $party in $party_word_count
+			return $party}
+			</word>    
+			)
     
+    return <model>
+	{for $interventions_of_party_member in $interventions_of_party_members
+	return  $interventions_of_party_member}
+          {for $word_token in $word_tokens
+	return  $word_token}
+	</model>	
 
-
- } ;
+ };
