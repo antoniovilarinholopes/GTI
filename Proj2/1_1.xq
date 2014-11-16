@@ -1,4 +1,3 @@
-
 declare function local:convertDate($date as xs:string?) as xs:string
 {
 
@@ -40,9 +39,13 @@ then concat(substring($date,6,2),'-12-',substring($date, 13, 4))
 else ()
 } ;
 
-let $categories := distinct-values( doc("DN-Ultimas.xml")//item/category)
 
-for $cat in $categories
+
+declare function local:parseNews($rss as xs:string) {
+let $categories := distinct-values( doc($rss)//item/category)
+
+return <news>
+{for $cat in $categories
 return
 <category name="{$cat}">
 {
@@ -55,3 +58,7 @@ return
 	</item>
 }
 </category>
+} </news>
+};
+
+local:parseNews("DN-Ultimas.xml");
