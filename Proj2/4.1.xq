@@ -21,7 +21,7 @@ declare function ns:word-count
 		
    (:get all words:)
    let $words := (for $speech in $speeches
-	       let $words := split($speech, " ")
+	       let $words := fn:tokenize($speech/text(), "\W+")
                  group by($words)
                  return $words)
    
@@ -35,7 +35,7 @@ declare function ns:word-count
 					      {count(for $speech, $politician in $speeches, $politicians
 							     where $speech[@politican = $politician/@code] 
 								and $politican[@party = $party] 
-								and contains($speech, $word)
+								and contains($speech/text(), $word)
 							     return $speech 
 							)}
 					     </party>
@@ -55,4 +55,4 @@ declare function ns:word-count
 	return  $word_token}
 	</model>	
 
- };
+ } ;
