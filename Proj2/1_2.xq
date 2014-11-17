@@ -87,25 +87,25 @@ return
 declare function local:parlamento($parlament, $news, $n as xs:decimal) {
 
 for $session in $parlament//p:session
-let $sessionWords := distinct-values(for $speech in $parlament//p:session/p:speech
+let $sessionWords := distinct-values(for $speech in $session/p:speech
 		let $toks := tokenize($speech/text(), '\W+')
 		for $t in $toks
 		return $t)
 return
 	<session>
 	{
-	for $item in $news//item
+	for $news_item in $news//item
+	let $news_item_copy := $news_item
 	let $result := count(
 			for $w in distinct-values($sessionWords)
-			return if(functx:contains-word($item/text(), $w))
+			return if(functx:contains-word($news_item_copy/text(), $w))
 			then $w
 			else())
-	return 
-		if(($result div count($sessionWords)) >= $n)
-		then <item title="{$item/@title}"/>
+	return if(($result div count($sessionWords)) >= $n)
+		then <item title="{$news_item_copy/@title}" value="{$result}"/>
 		else()
 	}
 	</session>
 };
 
-local:parlamento(doc("Parlamento.xml"), local:parseNews("DN-Ultimas.xml"), 0.2);
+local:parlamento(doc("Parlamento.xml"), local:parseNews("DN-Ultimas.xml"), 0);
