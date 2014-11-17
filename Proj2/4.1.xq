@@ -27,7 +27,7 @@ declare function local:model( $doc ) {
 	       let $words := fn:tokenize($speech/text(), "(\.|\!|\?|\,|\:|[ ]+)")
                  return $words)
 
-   let $words_normalized := fn:distinct-values(for $word in $all_words return fn:lower-case($word))
+   let $words_normalized := fn:distinct-values(for $word in $all_words return if(string($word) = '') then () else fn:lower-case($word))
 
 (:party with words:)
     let $word_tokens := (for $word in $words_normalized
@@ -35,9 +35,9 @@ declare function local:model( $doc ) {
                                                   return <party
 				                name="{$party}">
 					      {count(for $speech in $doc//ns:speech, $politician in $doc//ns:politician
-							     where $speech[@politican = $politician/@code] 
-								and $politician[@party = $party] 
-								and contains($speech/text(), $word)
+							     where $politician[@party = $party] 
+								and $speech[@politician = $politician/@code] 
+								and fn:contains(fn:lower-case($speech/text()), $word)
 							     return $speech 
 							)}
 					     </party>
@@ -59,5 +59,5 @@ declare function local:model( $doc ) {
 
 };
 
-local:model(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj1/Parlamento.xml"))
+local:model(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj1/parliament-data.xml"))
 
