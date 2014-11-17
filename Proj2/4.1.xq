@@ -1,40 +1,42 @@
-declare function ns:word-count
-  ( $speeches as xs:string? )  as xs:integer {
+declare namespace ns = "http://www.parlamento.pt"
+
+declare function local:model( $doc ) {
 
 
    (:get all partys:)
-   let $partys := fn:distinct-values(for $speech, $politician in $speeches, $politicians
-   		 where $speech[@politician = $politician/@code]
-                     group by ($politician/@party)
-		 return $politician/@party)
+   let $partys := distinct-values( $doc//ns:politician/data(@party) )
+
+
 
    (:number of interventions:)
    let $interventions_of_party_members := (for $party in $partys
-                                           let $number_interventions := count(for $speech, $politician in $speeches, $politicians
-							      where $politician/@party = $party and [speech/@politician=$politician/@code]
-							      return $party)
-				  return <party
+                                          let $number_interventions := count(for $speech in $doc//ns:speech, $politician in $doc//ns:politician
+	                                 			 where $politician[@party = $party] and $speech[@politician=$politician/@code]
+			             			 return $speech)
+                               	 return <party
 					name="{$party}"
 					size="{$number_interventions}"
 					>
-		 		         </party>)
-		
+					</party>)
+
+
    (:get all words:)
-   let $words := (for $speech in $speeches
-	       let $words := fn:tokenize($speech/text(), "\W+")
-                 group by($words)
+
+
+   let $all_words := (for $speech in $doc//ns:speech
+	       let $words := fn:tokenize($speech/text(), "(\.|\!|\?|\,|\:|[ ]+)")
                  return $words)
-   
-     
-    let $words_normalized := fn:distinct-values(fn_lowercase($words));
-    (:party with words:)
+
+   let $words_normalized := fn:distinct-values(for $word in $all_words return fn:lower-case($word))
+
+(:party with words:)
     let $word_tokens := (for $word in $words_normalized
                         let $party_word_count := (for $party in $partys
                                                   return <party
 				                name="{$party}">
-					      {count(for $speech, $politician in $speeches, $politicians
+					      {count(for $speech in $doc//ns:speech, $politician in $doc//ns:politician
 							     where $speech[@politican = $politician/@code] 
-								and $politican[@party = $party] 
+								and $politician[@party = $party] 
 								and contains($speech/text(), $word)
 							     return $speech 
 							)}
@@ -43,8 +45,8 @@ declare function ns:word-count
 		  return <word
 			token="{$word}"
 			>
-			{for $party in $party_word_count
-			return $party}
+			{for $party_word in $party_word_count
+			return $party_word}
 			</word>    
 			)
     
@@ -53,6 +55,9 @@ declare function ns:word-count
 	return  $interventions_of_party_member}
           {for $word_token in $word_tokens
 	return  $word_token}
-	</model>	
+	</model>
 
- } ;
+};
+
+local:model(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj1/Parlamento.xml"))
+
