@@ -87,25 +87,30 @@ return
 declare function local:parlamento($parlament, $news, $n as xs:decimal) {
 
 for $session in $parlament//p:session
-let $sessionWords := distinct-values(for $speech in $session/p:speech
-		let $toks := tokenize($speech/text(), '\W+')
-		for $t in $toks
-		return $t)
-return
+let $sessionSpeeches := concat(for $speech in $session/p:speech
+		return ($speech/text(), ' '))
+return 
 	<session>
 	{
 	for $news_item in $news//item
 	let $news_item_copy := $news_item
-	let $result := count(
-			for $w in distinct-values($sessionWords)
-			return if(functx:contains-word($news_item_copy/text(), $w))
-			then $w
-			else())
-	return if(($result div count($sessionWords)) >= $n)
-		then <item title="{$news_item_copy/@title}" value="{$result}"/>
+	let $result := local:match(concat($news_item/text(), ' ', $news_item/@title), $sessionSpeeches)
+	return if(($result div count(distinct-values(tokenize($sessionSpeeches, '\W+')))) >= $n)
+		then <item title='{$news_item_copy/@title}' />
 		else()
 	}
 	</session>
 };
 
-local:parlamento(doc("Parlamento.xml"), local:parseNews("DN-Ultimas.xml"), 0);
+declare function local:match($arg1, $arg2) {
+let $arg1Words := distinct-values(tokenize(lower-case($arg1), '\W+'))
+let $arg2Words := distinct-values(tokenize(lower-case($arg2), '\W+'))
+
+return count(for $w in $arg1Words
+where $w = $arg2Words
+return $w)
+};
+
+
+local:parlamento(doc("Parlamento.xml"), local:parseNews("DN-Ultimas.xml"), 1);
+(:local:match("the the ola", "the teste ola");:)
