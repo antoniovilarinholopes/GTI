@@ -1,25 +1,5 @@
 declare namespace p = "http://www.parlamento.pt"
 
-declare namespace functx = "http://www.functx.com";
-
-declare function functx:escape-for-regex
-  ( $arg as xs:string? )  as xs:string {
-
-   replace($arg,
-           '(\.|\[|\]|\\|\||\-|\^|\$|\?|\*|\+|\{|\}|\(|\))','\\$1')
- } ;
-
-declare function functx:contains-word
-  ( $arg as xs:string? ,
-    $word as xs:string )  as xs:boolean {
-
-   matches(upper-case($arg),
-           concat('^(.*\W)?',
-                     upper-case(functx:escape-for-regex($word)),
-                     '(\W.*)?$'))
-} ;
-
-
 declare function local:convertDate($date as xs:string?) as xs:string
 {
 
@@ -84,33 +64,38 @@ return
 };
 
 
-declare function local:parlamento($parlament, $news, $n as xs:decimal) {
-
+declare function local:getSessionRelatedNews($parlament, $news, $n as xs:decimal) {
+<related-news>
+{
 for $session in $parlament//p:session
 let $sessionSpeeches := concat(for $speech in $session/p:speech
 		return ($speech/text(), ' '))
 return 
-	<session>
+	<session date="{$session/@date}">
 	{
 	for $news_item in $news//item
 	let $news_item_copy := $news_item
-	let $result := local:match(concat($news_item/text(), ' ', $news_item/@title), $sessionSpeeches)
+	let $result := local:countCommonWords(concat($news_item/text(), ' ', $news_item/@title), $sessionSpeeches)
 	return if(($result div count(distinct-values(tokenize($sessionSpeeches, '\W+')))) >= $n)
 		then <item title='{$news_item_copy/@title}' />
 		else()
 	}
 	</session>
+}
+</related-news>
 };
 
-declare function local:match($arg1, $arg2) {
+(: counts how many common words are between $arg1 and $arg2 :)
+declare function local:countCommonWords($arg1, $arg2) {
 let $arg1Words := distinct-values(tokenize(lower-case($arg1), '\W+'))
 let $arg2Words := distinct-values(tokenize(lower-case($arg2), '\W+'))
 
-return count(for $w in $arg1Words
-where $w = $arg2Words
-return $w)
+return count(
+	for $w in $arg1Words
+	where $w = $arg2Words
+	return $w)
 };
 
 
-local:parlamento(doc("Parlamento.xml"), local:parseNews("DN-Ultimas.xml"), 1);
-(:local:match("the the ola", "the teste ola");:)
+local:getSessionRelatedNews(doc("Parlamento.xml"), local:parseNews("DN-Ultimas.xml"), 0.2);
+(:local:countCommonWords("the the ola", "the teste ola");:)
