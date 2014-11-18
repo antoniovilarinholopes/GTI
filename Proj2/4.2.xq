@@ -75,9 +75,10 @@ declare function local:naive-bayes
 
 
     (:calc each party prob:)
-    let $party_naive_bayes_probs := ( 	for $party_prob in $party_probs
-				
-				let $multiply_all_words_prob := (for $word_prob in $word_probs where $party_prob[@party = $word_prob/@party] return  $word_prob/@prob)
+    let $party_naive_bayes_probs := ( 	for $party in $model/model/party, $party_prob in $party_probs
+				where $party[@name = $party_prob/@party]
+				(:FIXME as probs não fazem join:)
+				let $multiply_all_words_prob := (for $word_prob in $word_probs return $word_prob/@prob) 
 				return 
 
 				<naive_bayes_party_prob
