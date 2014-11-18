@@ -59,5 +59,7 @@ declare function local:model( $doc ) {
 
 };
 
-local:model(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj1/Parlamento.xml"))
+
+local:model(doc("file:///home/antonio/GTI/Proj1/Parlamento.xml"))
+(:local:model(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj1/Parlamento.xml")):)
 

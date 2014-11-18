@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<model>
+  <party name="PSD" size="5"/>
+  <party name="PS" size="5"/>
+  <word token="text">
+    <party name="PSD">1</party>
+    <party name="PS">0</party>
+    </word>
+    <word token="from">
+      <party name="PSD">3</party>
+      <party name="PS">3</party>
+      </word>
+      <word token="the">
+	<party name="PSD">4</party>
+	<party name="PS">2</party>
+	</word>
+	<word token="speech">
+	  <party name="PSD">1</party>
+	  <party name="PS">3</party>
+	  </word>
+	  <word token="of">
+	    <party name="PSD">1</party>
+	    <party name="PS">0</party>
+	    </word>
+	    <word token="a">
+	      <party name="PSD">3</party>
+	      <party name="PS">5</party>
+	      </word>
+	      <word token="given">
+		<party name="PSD">1</party>
+		<party name="PS">2</party>
+		</word>
+		<word token="politician">
+		  <party name="PSD">3</party>
+		  <party name="PS">4</party>
+		  </word>
+		  <word token="reply">
+		    <party name="PSD">3</party>
+		    <party name="PS">2</party>
+		    </word>
+		    <word token="to">
+		      <party name="PSD">2</party>
+		      <party name="PS">1</party>
+		      </word>
+		      <word token="1st">
+			<party name="PSD">0</party>
+			<party name="PS">1</party>
+			</word>
+			<word token="another">
+			  <party name="PSD">0</party>
+			  <party name="PS">2</party>
+			  </word>
+			  <word token="previous">
+			    <party name="PSD">2</party>
+			    <party name="PS">0</party>
+			    </word>
+			    <word token="intervention">
+			      <party name="PSD">1</party>
+			      <party name="PS">1</party>
+			      </word>
+			      <word token="about"><party name="PSD">0</party><party name="PS">1</party></word><word token="&quot;ensino"><party name="PSD">0</party><party name="PS">1</party></word><word token="superior&quot;"><party name="PSD">0</party><party name="PS">1</party></word><word token="and"><party name="PSD">0</party><party name="PS">1</party></word><word token="&quot;educação&quot;"><party name="PSD">0</party><party name="PS">1</party></word><word token="second"><party name="PSD">1</party><party name="PS">0</party></word><word token="by"><party name="PSD">0</party><party name="PS">1</party></word><word token="particular"><party name="PSD">0</party><party name="PS">1</party></word></model>
