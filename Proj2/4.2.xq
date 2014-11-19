@@ -74,28 +74,23 @@ declare function local:naive-bayes
     			)
 
 
-    (:calc each party prob:)
-    let $party_naive_bayes_probs := ( 	for $party in $model/model/party, $party_prob in $party_probs
-				where $party[@name = $party_prob/@party]
-				(:FIXME as probs não fazem join:)
-				let $multiply_all_words_prob := (for $word_prob in $word_probs return $word_prob/@prob) 
-				return 
 
-				<naive_bayes_party_prob
-					party="{$party_prob/@party}"
-					
-					prob="{($party_prob/@prob * local:multiply($multiply_all_words_prob))}"
-				>
-				</naive_bayes_party_prob>
+    (:calc each party prob:)
+    let $party_naive_bayes_probs := (	for $party_prob in $party_probs
+				let $prob_words_party := (for $word_prob in $word_probs
+					 where $word_prob/@party = $party_prob/@party
+					 return $word_prob/@prob)
+				return 
+				<naive_bayes party="{$party_prob/@party}" prob="{$party_prob/@prob * local:multiply($prob_words_party)}" />
 				)
 
    (:return max:)
-   
-   
+
+
    let $max := fn:max( for $prob in $party_naive_bayes_probs//@prob return $prob )
 
    return (for $party_naive_bayes_prob in $party_naive_bayes_probs where $party_naive_bayes_prob[@prob = $max] return $party_naive_bayes_prob)
 
 };
 
-local:naive-bayes(doc("file:///home/antonio/GTI/Proj2/model.xml"), "Text from the speech of a given politician.")
+local:naive-bayes(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj2/model.xml"), "Reply to the 1st speech from another politician.")
