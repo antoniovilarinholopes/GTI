@@ -87,8 +87,8 @@ return
 
 (: counts how many common words are between $arg1 and $arg2 :)
 declare function local:countCommonWords($arg1, $arg2) {
-let $arg1Words := distinct-values(tokenize(lower-case($arg1), '\W+'))
-let $arg2Words := distinct-values(tokenize(lower-case($arg2), '\W+'))
+let $arg1Words := distinct-values(tokenize(lower-case($arg1), '\W+')[. != ''])
+let $arg2Words := distinct-values(tokenize(lower-case($arg2), '\W+')[. != ''])
 
 return count(
 	for $w in $arg1Words
