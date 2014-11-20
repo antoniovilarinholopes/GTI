@@ -37,7 +37,7 @@ declare function local:model( $doc ) {
 								    {count(	for $speech in $doc//ns:speech, $politician in $doc//ns:politician
 										where $politician[@party = $party] 
 										and $speech[@politician = $politician/@code] 
-										and fn:contains(fn:lower-case($speech/text()), $word)
+										and fn:matches(fn:lower-case($speech/text()), fn:concat('\b', $word, '\b'))
 										return $speech 
 									  )}
 								  </party>
@@ -63,6 +63,6 @@ declare function local:model( $doc ) {
 };
 
 
-local:model(doc("file:///home/antonio/GTI/Proj1/Parlamento.xml"))
-(:local:model(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj1/Parlamento.xml")):)
+(:local:model(doc("file:///home/antonio/GTI/Proj1/Parlamento.xml")):)
+local:model(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj1/Parlamento.xml"))
 

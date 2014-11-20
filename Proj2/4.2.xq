@@ -100,4 +100,4 @@ declare function local:naive-bayes
 
 };
 
-local:naive-bayes(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj2/model.xml"), "Reply to the 1st speech from another politician.")
+local:naive-bayes(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj2/model.xml"), "Reply to the previous reply.")
