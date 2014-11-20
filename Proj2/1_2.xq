@@ -76,7 +76,7 @@ return
 	for $news_item in $news//item
 	let $news_item_copy := $news_item
 	let $result := local:countCommonWords(concat($news_item/text(), ' ', $news_item/@title), $sessionSpeeches)
-	return if(($result div count(distinct-values(tokenize($sessionSpeeches, '\W+')))) >= $n)
+	return if(($result div count(distinct-values(tokenize($sessionSpeeches, '\W+')[. != '']))) >= ($n div 100))
 		then <item title='{$news_item_copy/@title}' />
 		else()
 	}
@@ -87,8 +87,8 @@ return
 
 (: counts how many common words are between $arg1 and $arg2 :)
 declare function local:countCommonWords($arg1, $arg2) {
-let $arg1Words := distinct-values(tokenize(lower-case($arg1), '\W+'))
-let $arg2Words := distinct-values(tokenize(lower-case($arg2), '\W+'))
+let $arg1Words := distinct-values(tokenize(lower-case($arg1), '\W+')[. != ''])
+let $arg2Words := distinct-values(tokenize(lower-case($arg2), '\W+')[. != ''])
 
 return count(
 	for $w in $arg1Words
@@ -97,5 +97,4 @@ return count(
 };
 
 
-local:getSessionRelatedNews(doc("Parlamento.xml"), local:parseNews("DN-Ultimas.xml"), 0.2);
-(:local:countCommonWords("the the ola", "the teste ola");:)
+local:getSessionRelatedNews(doc("Parlamento.xml"), local:parseNews("DN-Ultimas.xml"), 33);
