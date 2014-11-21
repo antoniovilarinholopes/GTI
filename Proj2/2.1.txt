@@ -1,0 +1,15 @@
+<div>
+	<span>
+		<p>#pcdata</p>
+		<p>#pcdata</p>
+		<strong>#pcdata</strong>
+		<strong>#pcdata</strong>
+		<em>#pcdata</em>
+	</span>
+	(<span>
+		<p>#pcdata</p>
+		<p>#pcdata</p>
+		<strong>#pcdata</strong>
+		<em>#pcdata</em>
+	</span>)?
+</div>
