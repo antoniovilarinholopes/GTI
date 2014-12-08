@@ -1,0 +1,17 @@
+2.1
+	GreatPoliticians(p):- Review(p,_,_,score), score>4
+	GreatParties(p, pt):- Review(p,_,_,score), Politician(p,pt), score>4
+
+2.2 (Porquê ter Q1(n,t) se o t é sempre Education? Posso criar Q1'?)
+	Q2(p)[ GreatPoliticians(p)
+	Q2 está contido em GreatPoliticians visto que tem as mesmas condições mas Q2 tem mais uma restrição, a de que os politicos têm de ter feito
+	um discurso ('speech') sobre Educação ('Education')
+	
+	Q1'(n):- Q1(n,t)
+	Q1'[ Q2(n)
+	Q2(n)[ Q1'(n)
+	Q1'(n) = Q2(n)
+	Têm as mesmas condições. Se desdobrarmos (fizermos 'unfold') Q1' então esta fica igual a Q2
+	
+2.3 (Pôr 2 vezes a tabela Review?)
+	Q3('Joaquim Silva', pt):- Review(p,date,topic,score), Review(p,date',topic',score'),Politician(p,pt), score>4, score'>4, p='Joaquim Silva'
