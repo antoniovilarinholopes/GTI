@@ -6,15 +6,39 @@ let $politicians := $doc//ns:politician
 let $politicians_bigrams := local:computeBigrams($politicians)
 let $number_of_pols := fn:count($politicians)
 
+
 let $politicians_jaccard := (for $position in 1 to $number_of_pols
 
   			return <politician name="{$politicians[$position]/@name}">
-                                         {(for $positionfront in $position + 1 to $number_of_pols
+				{if($position = $number_of_pols)
+				then
+					<jaccard value="0" />
+				else
+                                         (for $positionfront in $position + 1 to $number_of_pols
 				return
+
 	            		<jaccard value="{local:computeJaccard($politicians_bigrams[$position], $politicians_bigrams[$positionfront])}" />)
                                          }
 	         	 	      </politician>
 			)
+
+
+(:
+let $politicians_jaccard := (for $position in 1 to $number_of_pols
+  			return <politician name="{$politicians[$position]/@name}">
+				{(for $position2 in 1 to $number_of_pols
+				where $position != $position2
+				return
+	            		<jaccard value="{local:computeJaccard($politicians_bigrams[$position], $politicians_bigrams[$position2])}"
+					 pol1="{$politicians_bigrams[$position]/@name}"
+					pol2="{$politicians_bigrams[$position2]/@name}" />)
+                                         }
+	         	 	      </politician>
+			)
+
+return $politicians_jaccard
+:)
+
 
 let $thresh := 0.5
 let $final_politicians := (for $politician in $politicians_jaccard
@@ -69,4 +93,4 @@ let $pol_bigrams := (for $politician in $politicians
 return $pol_bigrams;
 };
 
-local:remove-duplicate-politician(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj3/Politicians.xml"));
+local:remove-duplicate-politician(doc("file:///afs/l2f/home/alopes/GTI/Proj3/Politicians.xml"));
