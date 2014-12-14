@@ -1,19 +1,20 @@
 
 declare function local:transitive-closure($politicians, $elementPos) {
 
-let $cluster := ($politicians[$elementPos])
+let $element := $politicians[$elementPos]
+let $cluster := ($element)
 let $politicians2 := remove($politicians, $elementPos)
 
-let $tmp:= (for $position in 1 to fn:count($politicians)
+let $tmp:= (for $position in 1 to fn:count($politicians2)
 	return
-		if(local:isSimiliar($politicians[$elementPos]/text(), $politicians[$position]/text()))
+		if(local:isSimiliar($element/text(), $politicians2[$position]/text()))
 		then $cluster := ($cluster, local:transitive-closure($politicians2, $position))
 		else())
 return $cluster
 };
 
 declare function local:isSimiliar($p1, $p2) {
-substring($p1/text(),1,1) = substring($p2/text(),1,1)
+substring($p1,1,1) = substring($p2,1,1)
 };
 
 declare function local:getClusters($politicians) {
