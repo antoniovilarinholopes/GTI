@@ -1,6 +1,6 @@
 declare namespace ns = "http://www.parlamento.pt"
 
-declare function local:remove-duplicate-politician($doc) {
+declare function local:find-politician-pairs($doc) {
 
 let $politicians := $doc//ns:politician
 let $politicians_bigrams := local:computeBigrams($politicians)
@@ -30,13 +30,13 @@ let $politicians_jaccard := (for $position in 1 to $number_of_pols
 
 let $thresh := 0.5
 
-
 let $final_politicians := <pairs> {(for $jaccard in $politicians_jaccard//jaccard
 			where $jaccard/@value >= 0.5
 			return
+
 			<pair>
-				<politician>{$jaccard/@pol1}</politician>
-				<politician>{$jaccard/@pol2}</politician>
+				<politician pol="{$jaccard/@pol1}"> {$jaccard/@pol1} </politician>
+				<politician pol="{$jaccard/@pol1}"> {$jaccard/@pol2} </politician>
 			</pair>
                         	)} </pairs>
 
@@ -90,4 +90,4 @@ return $pol_bigrams;
 };
 
 
-local:remove-duplicate-politician(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj3/Politicians.xml"));
+local:find-politician-pairs(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj3/Politicians.xml"));
