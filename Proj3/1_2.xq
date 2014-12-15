@@ -1,42 +1,78 @@
+declare function local:processClusterList($clusters) {
+let $processedCluster := 
+	(
+		for $position in 1 to fn:count($clusters)
+		return local:processCluster($clusters, $position)
+	)
 
-(:declare function local:transitive-closure($politicians, $elementPos) {
+let $removedElementDuplicates := 
+	(
+		for $elem in $processedCluster	
+		return local:removeDuplicatedElements($elem)
+	)
 
-let $element := $politicians[$elementPos]
-let $cluster := ($element)
-let $politicians2 := remove($politicians, $elementPos)
+let $removedClusterDuplicates := local:removeDuplicatedClusters($removedElementDuplicates)
 
-let $tmp:= (for $position in 1 to fn:count($politicians2)
-	return
-		if(local:isSimiliar($element/text(), $politicians2[$position]/text()))
-		then $cluster := ($cluster, local:transitive-closure($politicians2, $position))
-		else())
-return $cluster
+return 
+	if (deep-equal($clusters, $removedClusterDuplicates))
+	then $removedClusterDuplicates
+	else local:processClusterList($removedClusterDuplicates)
 };
 
-declare function local:isSimiliar($p1, $p2) {
-substring($p1,1,1) = substring($p2,1,1)
-}; :)
 
+declare function local:removeDuplicatedClusters($clusterList) {
+	for $position in 1 to count($clusterList)
+	where not(some $nodeInSeq in subsequence($clusterList, $position+1) satisfies local:sequence-node-equal-any-order($nodeInSeq/p,$clusterList[$position]/p))
+	return $clusterList[$position]
+};
 
-declare function local:processClusterList($clusters) {
+declare function local:sequence-node-equal-any-order($seq1, $seq2) as xs:boolean {
+	let $diff1 := (for $elem1 in $seq1
+		where not(local:is-node-in-sequence($elem1, $seq2))
+		return $elem1)
+	let $diff2 := (for $elem2 in $seq2
+		where not(local:is-node-in-sequence($elem2, $seq1))
+		return $elem2)
+	return empty(($diff1, $diff2))
+};
 
-for $position in 1 to fn:count($clusters)
+declare function local:removeDuplicatedElements($cluster) {
+<cluster>
+{for $position in 1 to count($cluster/p)
+where not(local:is-node-in-sequence($cluster/p[$position], subsequence($cluster/p, $position+1)))
+return $cluster/p[$position]}
+</cluster>
+};
 
-} ;
+declare function local:is-node-in-sequence($node as node()?, $seq as node()* )  as xs:boolean {
+   some $nodeInSeq in $seq satisfies deep-equal($nodeInSeq,$node)
+};
 
 (: returns a new cluster as a result of joining with the rest of the clusters :)
 declare function local:processCluster($clusters, $clusterPosition) {
-for $position in 1 to fn:count($clusters)
-return
-	if(not($position = $clusterPosition))
-	then
-		if(local:isSimiliarClusters($clusters[$position], $clusters[$position+1]))
-		then ($clusters[$position], $clusters[$position+1])
-		else()
-	else()	
+	let $list := (
+		for $position in ((1 to $clusterPosition - 1),($clusterPosition+1 to fn:count($clusters)))
+		return		
+			if(local:isSimiliarClusters($clusters[$position], $clusters[$clusterPosition]))
+			then 
+				<cluster>
+				{
+				(for $politician in $clusters[$position]//p
+				return $politician,
+				for $politician in $clusters[$clusterPosition]//p
+				return $politician)
+				}
+				</cluster>
+			else())
+	return
+		if(empty($list))
+		then $clusters[$clusterPosition]
+		else $list
+
 };
 
-(: a cluster is similiar with another if it has at least one element equals :)
+(:FIXME ver ///p em conformidade com o 1.1:)
+(: a cluster is similiar with another if it has at least one equal element :)
 declare function local:isSimiliarClusters($cluster1, $cluster2) {
 
 let $commonElements := 
@@ -46,8 +82,15 @@ let $commonElements :=
 return not(empty($commonElements))
 };
 
-let $c1 := (<c><p name="ola"/><p/></c>)
+(:let $c1 := (<c><p name="ola"/><p/></c>)
 let $c2 := (<c><p name="ola" /></c>)
 return local:isSimiliarClusters($c1, $c2)
+local:removeDuplicatedElements(<c><p name="ola"/><p name="ola"/><p name="adeus"/><p name="adeus"/></c>):)
 
-(:local:transitive-closure((<e>a1</e>, <e>a2</e>, <e>b1</e>, <e>c1</e>, <e>a3</e>, <e>b2</e>, <e>c2</e>, <e>a4</e>), 1);:)
+(:local:removeDuplicatedClusters((<c><p name="ola"/><p name="adeus"/></c>,<c><p name="adeus"/><p name="ola"/></c>,<c><a/></c>)):)
+
+local:processClusterList((<cluster><p name="a"/><p name="b"/><p name="c"/></cluster>,<cluster><p name="b"/><p name="c"/></cluster>,<cluster><p name="d"/><p name="e"/></cluster>))
+
+(:local:sequence-node-equal-any-order((<p name="ola"/>),(<p name="adeus"/>,<p name="ola"/>)):)
+
+(:local:removeDuplicatedClusters((<c><p name="ola"/><p name="adeus"/></c>,<c><p name="adeus"/><p name="ola"/></c>,<c><a/></c>)):)
