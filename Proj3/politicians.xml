@@ -1,0 +1,18 @@
+<politicians>
+	<politician name="José Sócrates de Sousa" party="PS" />
+	<politician name="Pedro Passos Coelho" party="PSD" />
+	<politician name="Paulo Portas" party="CDS" />
+	<politician name="António Costa" party="PS" />
+	<politician name="António José Seguro" party="PS" />
+	<politician name="Passos Coelho" party="PSD" />
+	<politician name="Aníbal Cavaco Silva" party="PPD/PSD" />
+	<politician name="Cavaco Silva" party="PSD" />
+	<politician name="José Seguro" party="PS" />
+	<politician name="Paulo Portas" party="CDS/PP" />
+	<politician name="José Socrates de Sousa" party="PS" />
+	<politician name="Pedro P. Coelho" party="PSD" />
+	<politician name="Mário Soares" party="PS" />
+	<politician name="Aníbal António Cavaco Silva" party="PPD/PSD" />
+	<politician name="Catarina Portas" party="BE" />
+	<!-- list of remaining politicians -->
+</politicians>
