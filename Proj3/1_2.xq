@@ -22,7 +22,7 @@ return
 
 declare function local:removeDuplicatedClusters($clusterList) {
 	for $position in 1 to count($clusterList)
-	where not(some $nodeInSeq in subsequence($clusterList, $position+1) satisfies local:sequence-node-equal-any-order($nodeInSeq/p,$clusterList[$position]/p))
+	where not(some $nodeInSeq in subsequence($clusterList, $position+1) satisfies local:sequence-node-equal-any-order($nodeInSeq/politician,$clusterList[$position]/politician))
 	return $clusterList[$position]
 };
 
@@ -38,9 +38,9 @@ declare function local:sequence-node-equal-any-order($seq1, $seq2) as xs:boolean
 
 declare function local:removeDuplicatedElements($cluster) {
 <cluster>
-{for $position in 1 to count($cluster/p)
-where not(local:is-node-in-sequence($cluster/p[$position], subsequence($cluster/p, $position+1)))
-return $cluster/p[$position]}
+{for $position in 1 to count($cluster/politician)
+where not(local:is-node-in-sequence($cluster/politician[$position], subsequence($cluster/politician, $position+1)))
+return $cluster/politician[$position]}
 </cluster>
 };
 
@@ -57,9 +57,9 @@ declare function local:processCluster($clusters, $clusterPosition) {
 			then 
 				<cluster>
 				{
-				(for $politician in $clusters[$position]//p
+				(for $politician in $clusters[$position]//politician
 				return $politician,
-				for $politician in $clusters[$clusterPosition]//p
+				for $politician in $clusters[$clusterPosition]//politician
 				return $politician)
 				}
 				</cluster>
@@ -71,26 +71,13 @@ declare function local:processCluster($clusters, $clusterPosition) {
 
 };
 
-(:FIXME ver ///p em conformidade com o 1.1:)
 (: a cluster is similiar with another if it has at least one equal element :)
 declare function local:isSimiliarClusters($cluster1, $cluster2) {
-
 let $commonElements := 
-	(for $element1 in $cluster1//p, $element2 in $cluster2//p
+	(for $element1 in $cluster1//politician, $element2 in $cluster2//politician
 	 where deep-equal($element1 , $element2)
 	 return $element1)
 return not(empty($commonElements))
 };
 
-(:let $c1 := (<c><p name="ola"/><p/></c>)
-let $c2 := (<c><p name="ola" /></c>)
-return local:isSimiliarClusters($c1, $c2)
-local:removeDuplicatedElements(<c><p name="ola"/><p name="ola"/><p name="adeus"/><p name="adeus"/></c>):)
-
-(:local:removeDuplicatedClusters((<c><p name="ola"/><p name="adeus"/></c>,<c><p name="adeus"/><p name="ola"/></c>,<c><a/></c>)):)
-
-local:processClusterList((<cluster><p name="a"/><p name="b"/><p name="c"/></cluster>,<cluster><p name="b"/><p name="c"/></cluster>,<cluster><p name="d"/><p name="e"/></cluster>))
-
-(:local:sequence-node-equal-any-order((<p name="ola"/>),(<p name="adeus"/>,<p name="ola"/>)):)
-
-(:local:removeDuplicatedClusters((<c><p name="ola"/><p name="adeus"/></c>,<c><p name="adeus"/><p name="ola"/></c>,<c><a/></c>)):)
+local:processClusterList((<pair><politician name="a" party="PSD"/><pair name="b" party="PS"/><politician name="c" party="PSD"/></pair>,<pair><politician name="b" party="PS"/><politician name="c" party="PSD"/></pair>,<pair><politician name="d" party="PSD"/><politician name="e" party="PSD"/></pair>))
