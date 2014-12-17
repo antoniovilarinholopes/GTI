@@ -2,16 +2,16 @@
 	GreatPoliticians(p):- Review(p,_,_,score), score>4
 	GreatParties(p, pt):- Review(p,_,_,score), Politician(p,pt), score>4
 
-2.2 (Porquê ter Q1(n,t) se o t é sempre Education? Posso criar Q1'?)
-	Q2(p)[ GreatPoliticians(p)
-	Q2 está contido em GreatPoliticians visto que tem as mesmas condições mas Q2 tem mais uma restrição, a de que os politicos têm de ter feito
-	um discurso ('speech') sobre Educação ('Education')
+2.2 
+	Entre as duas queries não podem existir relações de "containment" ou equivalência visto que ambas têm uma aridade diferente, a query Q1 tem aridade 2
+	e a Q2 tem aridade 1.
+	Se considerarmos a query Q1'(n):- Q1(n,t) neste caso podemos verificar que existe uma relação de equivalência entre as queries Q1'(n) e 
+	Q2(p), estas queries são equivalentes. Depois de feito o "unfold" as condições/restrições a que as queries estão sujeitas são as 
+	mesmas.
 	
-	Q1'(n):- Q1(n,t)
-	Q1'[ Q2(n)
-	Q2(n)[ Q1'(n)
-	Q1'(n) = Q2(n)
-	Têm as mesmas condições. Se desdobrarmos (fizermos 'unfold') Q1' então esta fica igual a Q2
+	Q1'(n) [ Q2(n)
+	Q2(n) [ Q1'(n)
+	Q1'(n) "=" Q2(n)
 	
-2.3 (Pôr 2 vezes a tabela Review?)
+2.3 
 	Q3('Joaquim Silva', pt):- Review(p,date,topic,score), Review(p,date',topic',score'),Politician(p,pt), score>4, score'>4, p='Joaquim Silva'

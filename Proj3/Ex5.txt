@@ -1,0 +1,17 @@
+5.1
+	A dificuldade do processo de mapeamento de esquemas (schema mapping) deve-se sobretudo à heterogeneidade das fontes de dados.
+	Os dados existentes nas diversas fontes podem não estar organizados da mesma forma daquela pretendida no esquema mediador e até podem
+	estar organizados de forma diferente entre eles.
+	Por este motivo é preciso que o mapeamento tenha em conta certos detalhes, mesmo com o conhecimento das correspondências. Pode acontecer
+	haver dados incompletos numa fonte, como por exemplo numa tabela com nome, número de telefone e morada, pode acontecer um registo não ter número de telefone,
+	neste caso o mapeamento deve ter em conta esta possibilidade e possivelmente tentar preencher os detalhes em falta.
+	(No processo de mapeamento é necessário definir as transformações necessárias a aplicar aos dados vindos das fontes para que estes estejam
+	no formato pretendido do esquema mediador.)
+	Durante este processo pode ainda ser preciso combinar dados de múltiplos atributos (através de operações como joins, operações matemáticas...). Esta combinação pode
+	não ser trivial de encontrar pois é necessário analisar grandes conjuntos de dados dos dois esquemas para se chegar a uma combinação correcta. Pode ainda existir
+	mais de uma forma de combinar os dados para chegar ao objectivo pretendido. EXEMPLO FIX
+	
+5.2
+	O propósito destas dimensões é permitir a análise da qualidade de dados segundo diferentes perspectivas (dimensões). Ou seja, o objectivo é fornecer
+	ferramentas, neste caso, métricas que permitem analisar os dados de forma mais objectiva e de certa forma quantificar a sua qualidade segundo diferentes
+	perspectivas como a completude, consistência, precisão...
