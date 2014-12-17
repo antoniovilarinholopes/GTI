@@ -3,12 +3,19 @@ declare function local:cleanPoliticians($politiciansList, $clusters) {
 {
 let $cleanedPoliticians := (
 	for $politician in $politiciansList//politician
-	return for $cluster in $clusters//cluster
-		return 
-			if (some $nodeInSeq in $cluster//politician satisfies deep-equal($nodeInSeq, $politician))
-			then local:getPoliticianFromCluster($cluster)
-			else $politician)
-return $cleanedPoliticians (:local:removeDuplicatedElements($cleanedPoliticians) :)
+	return 
+		let $occurrenceInCluster := (
+			for $cluster in $clusters//cluster
+			return 
+				if (some $nodeInSeq in $cluster//politician satisfies deep-equal($nodeInSeq, $politician))
+				then local:getPoliticianFromCluster($cluster)
+				else ())
+		return
+			if (empty($occurrenceInCluster))
+			then $politician
+			else $occurrenceInCluster
+		)
+return local:distinct-nodes($cleanedPoliticians)
 }
 </politicians>
 };
@@ -32,33 +39,33 @@ name="{
 }"/>
 };
 
-declare function local:removeDuplicatedElements($politiciansList) {
-for $position in 1 to count($politiciansList/politician)
-where not(local:is-node-in-sequence($politiciansList/politician[$position], subsequence($politiciansList/politician, $position+1)))
-return $politiciansList/politician[$position]
+declare function local:distinct-nodes ($arg as node()*) as node()* {
+ for $a at $apos in $arg
+ let $before_a := fn:subsequence($arg, 1, $apos - 1)
+ where every $ba in $before_a satisfies not(deep-equal($ba,$a))
+ return $a
 };
-
-declare function local:is-node-in-sequence($node as node()?, $seq as node()* )  as xs:boolean {
-   some $nodeInSeq in $seq satisfies deep-equal($nodeInSeq, $node)
-};
-
 
 let $politicians := (
 <politicians>
-	<politician name="A" party="PS" />
+	<politician name="A" party="P" />
+	<politician name="B" party="PS" />
 	<politician name="D" party="PS" />
+	<politician name="F" party="OLA" />
 </politicians>
 )
 
 let $clusters := (
 <clusters>
 	<cluster>
+		<politician name="AB" party="PSX" />
 		<politician name="A" party="P" />
 		<politician name="B" party="PS" />
-		<politician name="AC" party="PS" />
+		<politician name="AC" party="x" />
 	</cluster>
 	<cluster>
 		<politician name="D" party="PS" />
+		<politician name="DRE" party="y" />
 		<politician name="E" party="PS" />
 	</cluster>
 </clusters>
