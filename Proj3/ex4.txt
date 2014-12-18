@@ -1,0 +1,28 @@
+Exercício 4: Query Discovery Algorithm
+
+Phase 1 (ν computation):
+
+ν = {
+	{C1, C3, C5}, {C1, C4, C5}, {C2, C3, C5}, {C2, C4, C5},
+	{C1, C3}, {C1, C4}, {C2, C3}, {C2, C4}, {C1, C5}, {C2, C5}, {C3, C5}, {C4, C5},
+	{C1}, {C2}, {C3}, {C4}, {C5}
+}
+
+Phase 2 (ζ computation with path finding):
+
+ζ = {
+	{C1, C4, C5}, {C2, C3, C5}, {C1, C4}, 
+	{C2, C3}, {C1, C5}, 
+	{C1}, {C2}, {C3}, {C4}, {C5}
+}
+
+Phase 3 (Covers found from ζ):
+
+Covers:
+	C1: {{C1, C4, C5}, {C2, C3, C5}}
+	C2: {{C1, C4, C5}, {C2, C3}}
+	C3: {{C2, C3, C5}, {C1, C4}}
+	...
+	Other covers are possible with {CN} but involves more candidate sets thus they won't be selected by the algorithm
+
+	The algorithm selects C1 (why?)
