@@ -11,18 +11,29 @@ Phase 1 (ν computation):
 Phase 2 (ζ computation with path finding):
 
 ζ = {
-	{C1, C4, C5}, {C2, C3, C5}, {C1, C4}, 
-	{C2, C3}, {C1, C5}, 
+	{C1, C4, C5},
+	{C1, C4}, {C2, C3}, {C1, C5}, {C4, C5}, 
 	{C1}, {C2}, {C3}, {C4}, {C5}
 }
 
 Phase 3 (Covers found from ζ):
 
 Covers:
-	C1: {{C1, C4, C5}, {C2, C3, C5}}
-	C2: {{C1, C4, C5}, {C2, C3}}
-	C3: {{C2, C3, C5}, {C1, C4}}
+	C1: {{C1, C4, C5}, {C2, C3}}
+	C2: {{C1, C4}, {C2, C3}, {C1, C5}}
+	C3: {{C1, C4}, {C2, C3}, {C4, C5}}
 	...
 	Other covers are possible with {CN} but involves more candidate sets thus they won't be selected by the algorithm
 
-	The algorithm selects C1 (why?)
+	The algorithm selects C1 because it has the smallest number of candidate sets.
+
+Phase 4 (Schema Mapping Expression as an SQL Query):
+{{C1, C4, C5}, {C2, C3}}
+
+SELECT name, opinion, party
+FROM Politician p, Speech s
+WHERE p.NameP = s.nameP
+UNION
+SELECT name, opinion, NULL
+FROM Journalist j, Article a
+WHERE j.NameJ = a.NameJ
