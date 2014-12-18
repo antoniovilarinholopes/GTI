@@ -80,4 +80,6 @@ let $commonElements :=
 return not(empty($commonElements))
 };
 
-local:processClusterList((<pair><politician name="a" party="PSD"/><pair name="b" party="PS"/><politician name="c" party="PSD"/></pair>,<pair><politician name="b" party="PS"/><politician name="c" party="PSD"/></pair>,<pair><politician name="d" party="PSD"/><politician name="e" party="PSD"/></pair>))
+<clusters>{local:processClusterList(doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj3/pairs.xml")//pair)}</clusters>;
+
+(:local:processClusterList((<pair><politician name="a" party="PSD"/><pair name="b" party="PS"/><politician name="c" party="PSD"/></pair>,<pair><politician name="b" party="PS"/><politician name="c" party="PSD"/></pair>,<pair><politician name="d" party="PSD"/><politician name="e" party="PSD"/></pair>)):)

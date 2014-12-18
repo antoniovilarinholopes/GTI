@@ -46,6 +46,7 @@ declare function local:distinct-nodes ($arg as node()*) as node()* {
  return $a
 };
 
+(:
 let $politicians := (
 <politicians>
 	<politician name="A" party="P" />
@@ -54,7 +55,11 @@ let $politicians := (
 	<politician name="F" party="OLA" />
 </politicians>
 )
+:)
 
+let $politicians := doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj3/Politicians.xml")
+
+(:
 let $clusters := (
 <clusters>
 	<cluster>
@@ -70,6 +75,9 @@ let $clusters := (
 	</cluster>
 </clusters>
 )
-(:return local:getPoliticianFromCluster($clusters/cluster[1]):)
+:)
+
+let $clusters := doc("file:///afs/ist.utl.pt/users/2/1/ist173721/GTI/Proj3/clusters.xml")
+
 return local:cleanPoliticians($politicians, $clusters)
 

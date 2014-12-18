@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<politicians xmlns="http://www.parlamento.pt">
+<politicians>
 	<politician name="José Sócrates de Sousa" party="PS" />
 	<politician name="Pedro Passos Coelho" party="PSD" />
 	<politician name="Paulo Portas" party="CDS" />

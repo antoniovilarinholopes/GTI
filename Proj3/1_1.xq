@@ -1,8 +1,7 @@
-declare namespace ns = "http://www.parlamento.pt"
 
 declare function local:find-politician-pairs($doc) {
 
-let $politicians := $doc//ns:politician
+let $politicians := $doc//politician
 let $politicians_bigrams := local:computeBigrams($politicians)
 let $number_of_pols := fn:count($politicians)
 
@@ -21,7 +20,9 @@ let $politicians_jaccard := (for $position in 1 to $number_of_pols
 				
                               	 	<jaccard value="{local:computeJaccard($politicians_bigrams[$position], $politicians_bigrams[$positionfront])}"
                                          	pol1="{$politicians_bigrams[$position]/@name}"
-                                        	pol2="{$politicians_bigrams[$positionfront]/@name}" />
+				party1="{$politicians_bigrams[$position]/@party}"
+                                        	pol2="{$politicians_bigrams[$positionfront]/@name}"
+				party2="{$politicians_bigrams[$positionfront]/@party}" />
                         		)
 			}
 			 </politician>
@@ -35,8 +36,8 @@ let $final_politicians := <pairs> {(for $jaccard in $politicians_jaccard//jaccar
 			return
 
 			<pair>
-				<politician pol="{$jaccard/@pol1}"> {$jaccard/@pol1} </politician>
-				<politician pol="{$jaccard/@pol1}"> {$jaccard/@pol2} </politician>
+				<politician name="{$jaccard/@pol1}" party="{$jaccard/@party1}"/>
+				<politician name="{$jaccard/@pol2}" party="{$jaccard/@party2}"/>
 			</pair>
                         	)} </pairs>
 
@@ -70,7 +71,7 @@ declare function local:computeBigrams($politicians)  {
 
 let $pol_bigrams := (for $politician in $politicians
 		return 
-		<politician name="{$politician/@name}" >
+		<politician name="{$politician/@name}" party="{$politician/@party}">
 		{for $position in 1 to fn:string-length($politician/@name)
 		  return 
                        if($position = 1) 
